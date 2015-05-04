@@ -13,6 +13,28 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+# Create tag pages items before compilation
+preprocess do
+  tags = Set[]
+  items.each do |item|
+    item[:tags].each { |t| tags << t } if item[:tags]
+  end
+  tags.each do |tag|
+    items << Nanoc::Item.new(
+      "<%= render 'tags' %>",
+      { :tag => tag },
+      "/tag/#{tag}/")
+  end
+end
+
+compile '/tag/*/' do
+  filter :erb
+    if item[:extension] == 'md'
+      filter :kramdown, { enable_coderay: false }
+    end
+  layout 'default'
+end
+
 compile '*' do
   if item[:extension] == 'css'
     # don’t filter stylesheets
