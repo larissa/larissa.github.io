@@ -114,6 +114,11 @@ a:hover {
   list-style-type: square;
 }
 
+#main .post-header {
+  font-size: 80%;
+  text-align: right;
+}
+
 #sidebar {
   position: fixed;
   float: left;

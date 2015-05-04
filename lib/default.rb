@@ -44,3 +44,8 @@ def get_tags(items)
   end
   tags
 end
+
+def post_header(item)
+  %(<h1>#{item[:title]}</h1>
+  <p class='post-header'>Posted on #{creation_date(item)}</p>)
+end
