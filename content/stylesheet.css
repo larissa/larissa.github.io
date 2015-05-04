@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+  line-height: 2;
+  color: #2D2D2D;
+}
+
+body {
+  background: #F2F0EC;
+}
+
+hr {
+  border-color: #A09F93;
+  background-color: #A09F93;
+  color: #A09F93;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+pre {
+  background-color: #F3F3F3;
+  border: solid 1px #CCC;
+  border-radius: 3px;
+  padding: 15px 20px;
+  overflow: auto;
+  white-space: pre;
+  margin: 20px 0px;
+}
+
+code,
+code * {
+  font-size: 1em;
+  font-family: "Source Code Pro", Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: #f30;
+}
+
+a:hover {
+  color: #f90;
+}
+
+#content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#main {
+  position: relative;
+  top: 40px;
+  left: 23%;
+  max-width: 550px;
+  width: 100%;
+  float: left;
+}
+
+#main h1 {
+  display: block;
+  font-size: 45px;
+  line-height: 1em;
+  font-family: 'DejaVu Sans', sans-serif;
+  font-weight: 100;
+  margin-bottom: 30px
+}
+
+#main h1,
+#main h2,
+#main h3,
+#main h4 {
+  color: #000;
+}
+
+#main p {
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 135%;
+}
+
+#main ul, #main ol {
+  margin: 20px;
+}
+
+#main li {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+#main ul li {
+  list-style-type: square;
+}
+
+#sidebar {
+  position: fixed;
+  float: left;
+  max-width: 210px;
+  width: 15%;
+  padding: 5% 1.5% 0px 1.5%;
+  text-align: right;
+  min-height: 100%;
+  background-color: #2D2D2D;
+}
+
+#sidebar * {
+  color: #F2F0EC;
+}
+
+#sidebar h2 {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+#sidebar ul {
+  list-style-type: none;
+  margin: 20px 0;
+}
+
+#sidebar li {
+  font-size: 14px;
+  line-height: 20px;
+}

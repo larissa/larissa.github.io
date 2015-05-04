@@ -1,0 +1,13 @@
+---
+title: Archive
+---
+<h1>Archive</h1>
+
+<% sorted_articles_by_month.each do |month, posts| %>
+  <h2><%= month %></h2>
+  <ul class='archive-posts'>
+  <% posts.each do |post| %>
+    <li><%= link_to(post[:title], post.path) %></li>
+  <% end %>
+  </ul>
+<% end %>
