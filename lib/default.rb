@@ -46,6 +46,10 @@ def get_tags(items)
 end
 
 def post_header(item)
-  %(<h1>#{item[:title]}</h1>
-  <p class='post-header'>Posted on #{creation_date(item)}</p>)
+  header = "<h1>#{item[:title]}</h1>
+   <p class='post-header'>
+     Posted on #{creation_date(item)}"
+  tags = tags_for(@item, { base_url: 'localhost:3000/tag/' })
+  header << "<br/>Tags: #{tags}" if  tags != '(none)'
+  header << "</p>"
 end
