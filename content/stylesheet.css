@@ -150,3 +150,13 @@ a:hover {
   font-size: 14px;
   line-height: 20px;
 }
+
+#sidebar p {
+  font-size: 80%;
+  line-height: 1.5;
+}
+
+#sidebar ul.social li {
+  font-size: 30px;
+  text-align: center;
+}

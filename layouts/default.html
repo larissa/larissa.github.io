@@ -2,10 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Larissa - <%= @item[:title] %></title>
+    <title>larissa | <%= @item[:title] %></title>
     <link rel="stylesheet" href="<%= @items['/stylesheet/'].path %>">
     <link rel="stylesheet" href="<%= @items['/coderay/'].path %>">
     <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="<%= @items['/javascript/'].path %>"type="text/javascript" charset="utf-8"></script>
 
     <!-- you don't need to keep this, but it's cool for stats! -->
     <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
@@ -20,14 +22,16 @@
           <li><%= link_to('Archive', @items['/archive/'].path) %></li>
           <li><%= link_to('Tags', @items['/tags/'].path) %></li>
         </ul>
-        <h2>Community</h2>
-        <ul>
-          <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
-          <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
-          <li><a href="http://github.com/nanoc/nanoc/wiki/">Wiki</a></li>
-          <li>Tags: <%= tags_for(@item, {base_url: 'localhost:3000/tag/'}) %></li>
+        <ul class="social">
+          <li>
+            <a href="https://github.com/larissa"><i class="fa fa-github-square"></i></a>
+            <a href="https://bitbucket.org/larissareis"><i class="fa fa-bitbucket-square"></i></a>
+            <a href="https://br.linkedin.com/in/reislarissa"><i class="fa fa-linkedin-square"></i></a>
+            <a href="https://gitlab.com/u/larissa"><i class="fa fa-git-square"></i></a>
+            <a href="#" onmouseover='AbreTeSesamo(this);' onmouseout='this.href="#";'><i class="fa fa-envelope-square"></i></a>
+            <a href=#><i class="fa fa-rss-square"></i></a>
+          </li>
         </ul>
-        <h2><%= link_to('Home', @item) %></h2>
       </div>
       <div id="main">
         <%= yield %>
