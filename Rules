@@ -27,14 +27,6 @@ preprocess do
   end
 end
 
-compile '/tag/*/' do
-  filter :erb
-    if item[:extension] == 'md'
-      filter :kramdown, { enable_coderay: false }
-    end
-  layout 'default'
-end
-
 compile '*' do
   if item[:extension] == 'css'
     # don’t filter stylesheets
