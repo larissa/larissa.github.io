@@ -36,3 +36,11 @@ end
 def sorted_articles_by_month
   sorted_articles.group_by { |a| a[:created_at].strftime('%B') }
 end
+
+def get_tags(items)
+  tags = Set[]
+  items.each do |item|
+    item[:tags].each { |t| tags << t } if item[:tags]
+  end
+  tags
+end
