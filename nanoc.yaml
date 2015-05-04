@@ -72,3 +72,8 @@ checks:
     # E.g.:
     #   exclude: ['^/server_status']
     exclude: []
+
+# Site and author configurations
+base_url: http://larissareis.me
+author_name: Larissa Reis
+author_uri: http://larissareis.me

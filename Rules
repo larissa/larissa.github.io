@@ -25,6 +25,10 @@ preprocess do
   end
 end
 
+compile '/feed/' do
+  filter :erb
+end
+
 compile '*' do
   if item[:extension] == 'css'
     # don’t filter stylesheets
@@ -49,6 +53,10 @@ compile '*' do
        }
     layout 'default'
   end
+end
+
+route '/feed/' do
+  '/feed.xml'
 end
 
 route '*' do
