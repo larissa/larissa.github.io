@@ -51,6 +51,9 @@ compile '*' do
          #:line_number_anchors => false,
          :bold_every => false
        }
+    if item[:kind] == 'article'
+      layout 'post'
+    end
     layout 'default'
   end
 end

@@ -1,0 +1,8 @@
+<h1><%= item[:title] %></h1>
+<p class='post-header'>
+  Posted on <%= creation_date(item) %><br/>
+  <% tags = tags_for(@item, { base_url: "#{@site.config[:base_url]}/tag/" }) %>
+  <%= "Tags: #{tags}" if  tags != '(none)' %>
+</p>
+
+<%= yield %>
