@@ -20,9 +20,14 @@ preprocess do
     items << Nanoc::Item.new(
       "<h1>#{tag}</h1>
       <%= render 'tags', tag: '#{tag}' %>",
-      {},
+      { title: tag },
       "/tag/#{tag}/")
   end
+end
+
+compile '/tag/*/' do
+  filter :erb
+  layout 'default'
 end
 
 compile '/feed/' do
