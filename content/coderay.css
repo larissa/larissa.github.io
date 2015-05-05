@@ -34,7 +34,7 @@ table.CodeRay td {
 .CodeRay .line-numbers tt { font-weight: bold }
 .CodeRay .line-numbers .highlighted { color: red }
 .CodeRay .line { display: block; float: left; width: 100%; }
-.CodeRay span.line-numbers { padding: 0px 4px }
+.CodeRay span.line-numbers { padding: 0px 4px; margin-right: 5px; }
 .CodeRay .code { width: 100% }
 
 ol.CodeRay { font-size: 10pt }

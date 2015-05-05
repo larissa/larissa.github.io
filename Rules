@@ -48,12 +48,10 @@ compile '*' do
       end
       filter :colorize_syntax,
        :colorizers => { :ruby => :coderay },
-       :outside_pre => true,
        :coderay    => {
          :css => :class,
-         #TODO: line numbers shouldnt appear outside pre
-         #:line_numbers => :inline,
-         #:line_number_anchors => false,
+         :line_numbers => :inline,
+         :line_number_anchors => false,
          :bold_every => false
        }
     if item[:kind] == 'article'

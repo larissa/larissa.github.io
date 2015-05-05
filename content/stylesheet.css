@@ -48,7 +48,17 @@ pre {
 code,
 code * {
   font-size: 1em;
-  font-family: "Source Code Pro", Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace !important;
+  font-family: "Source Code Pro", Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+}
+
+p > code,
+li > code {
+  margin: 0 2px;
+  padding: 0px 5px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  white-space: nowrap;
 }
 
 a {
