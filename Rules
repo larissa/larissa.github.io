@@ -25,6 +25,11 @@ preprocess do
   end
 end
 
+# Do not compile meta files, like CNAME
+compile '/meta/*/' do
+  # do nothing
+end
+
 compile '/tag/*/' do
   filter :erb
   layout 'default'
@@ -63,6 +68,12 @@ end
 
 route '/feed/' do
   '/feed.xml'
+end
+
+route '/meta/*/' do
+  # Routes to root directory by removing meta from the identifier
+  # and keeps extension (or lack thereof)
+  item.identifier[5..-1].chop + (item[:extension].nil? ? '' : '.' + item[:extension])
 end
 
 route '*' do
