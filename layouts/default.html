@@ -24,17 +24,37 @@
         </ul>
         <ul class="social">
           <li>
-            <a href="https://github.com/larissa"><i class="fa fa-github-square"></i></a>
-            <a href="https://bitbucket.org/larissareis"><i class="fa fa-bitbucket-square"></i></a>
-            <a href="https://br.linkedin.com/in/reislarissa"><i class="fa fa-linkedin-square"></i></a>
-            <a href="https://gitlab.com/u/larissa"><i class="fa fa-git-square"></i></a>
-            <a href="#" onmouseover='AbreTeSesamo(this);' onmouseout='this.href="#";'><i class="fa fa-envelope-square"></i></a>
-            <a href=<%= @items['/feed/'].path %>><i class="fa fa-rss-square"></i></a>
+            <a title="github" href="https://github.com/larissa" class="fa fa-github-square"></a>
+          </li>
+          <li>
+            <a title="gitlab" href="https://gitlab.com/u/larissa" class="fa fa-git-square"></a>
+          </li>
+          <li>
+            <a title="bitbucket" href="https://bitbucket.org/larissareis" class="fa fa-bitbucket-square"></a>
+          </li>
+          <li>
+            <a title="linkedin" href="https://br.linkedin.com/in/reislarissa" class="fa fa-linkedin-square"></a>
+          </li>
+          <li>
+            <a title="contact" href="#" onmouseover='AbreTeSesamo(this);' onmouseout='this.href="#";' class="fa fa-envelope-square"></a>
+          </li>
+          <li>
+            <a title="feed" href=<%= @items['/feed/'].path %> class="fa fa-rss-square"></a>
           </li>
         </ul>
       </div>
-      <div id="main">
+      <div id="main" class='left-column'>
         <%= yield %>
+      </div>
+      <div class="clear">
+      </div>
+      <div id='footer' class='left-column'>
+        <p>
+          ©2015, Larissa Reis. All Rights Reserved
+        </p>
+        <p>
+          Powered by the awesomeness and simplicity of <%= link_to 'Ruby', 'https://www.ruby-lang.org' %> and <%= link_to 'Nanoc', 'http://nanoc.ws' %>.
+        </p>
       </div>
     </div>
   </body>
