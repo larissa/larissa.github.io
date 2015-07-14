@@ -1,10 +1,10 @@
 <% @home_page ||= false %>
 
 <h1><%= @home_page ? link_to(@item[:title], @item.path) : @item[:title] %></h1>
-<p class='post-header'>
-  Posted on <%= creation_date(@item) %><br/>
+<div class='post-header'>
+  <h4>Posted on <%= creation_date(@item) %></h4>
   <% tags = tags_for(@item, { base_url: "/tag/" }) %>
-  <%= "Tags: #{tags}" if  tags != '(none)' %>
-</p>
+  <h5><%= "Tags: #{tags}" if  tags != '(none)' %></h5>
+</div>
 
 <%= yield %>
