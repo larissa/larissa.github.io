@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="<%= @items['/stylesheet/'].path %>">
     <link rel="stylesheet" href="<%= @items['/coderay/'].path %>">
     <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Patua+One|Raleway:100,200,300,400,500' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="<%= @items['/javascript/'].path %>" type="text/javascript" charset="utf-8"></script>
 
     <!-- you don't need to keep this, but it's cool for stats! -->
@@ -30,6 +31,23 @@
       <div class="clear">
       </div>
       <div id='footer'>
+        <ul class="social">
+          <li>
+            <a title="github" href="https://github.com/larissa" class="fa fa-github"></a>
+          </li>
+          <li>
+            <a title="gitlab" href="https://gitlab.com/u/larissa" class="fa fa-git"></a>
+          </li>
+          <li>
+            <a title="bitbucket" href="https://bitbucket.org/larissareis" class="fa fa-bitbucket"></a>
+          </li>
+          <li>
+            <a title="linkedin" href="https://br.linkedin.com/in/reislarissa" class="fa fa-linkedin"></a>
+          </li>
+          <li>
+            <a title="contact" href="#" onmouseover='AbreTeSesamo(this);' onmouseout='this.href="#";' class="fa fa-envelope"></a>
+          </li>
+        </ul>
         <p>
           ©2015, Larissa Reis. All Rights Reserved
         </p>

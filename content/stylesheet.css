@@ -117,7 +117,7 @@ a:hover {
 
 #main {
   position: relative;
-  padding: 40px 0;
+  padding: 40px 0 120px 0;
 }
 
 #main h1,
@@ -214,7 +214,7 @@ a:hover {
 #footer {
   position: absolute;
   bottom: 0;
-  height: 30px;
+  height: 100px;
   text-align: center;
   padding: 10px;
   left: 0;
@@ -224,4 +224,18 @@ a:hover {
 #footer * {
   font-size: 12px;
   line-height: 1.2;
+}
+
+#footer .social li {
+  display: inline-block;
+  padding: 20px;
+}
+#footer .social li a {
+  font-size: 35px !important;
+  color: #dfdfdf;
+  transition: 0.5s;
+}
+#footer .social li a:hover {
+  text-decoration: none;
+  color: #909090;
 }
