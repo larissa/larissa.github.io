@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://larissareis.me/</id>
+  <title>blog feed</title>
+  <updated>2015-07-13T03:00:00Z</updated>
+  <link rel="alternate" href="http://larissareis.me/"/>
+  <link rel="self" href="http://larissareis.me/feed.xml"/>
+  <author>
+    <name>Larissa Reis</name>
+    <uri>http://larissareis.me</uri>
+  </author>
+  <entry>
+    <id>tag:larissareis.me,2015-07-13:/posts/vim-y-behavior/</id>
+    <title type="html">Vim Y behavior and yankring</title>
+    <published>2015-07-13T03:00:00Z</published>
+    <updated>2015-07-13T03:00:00Z</updated>
+    <author>
+      <name>Larissa Reis</name>
+      <uri>http://larissareis.me</uri>
+    </author>
+    <link rel="alternate" href="http://larissareis.me/posts/vim-y-behavior/"/>
+    <content type="html">
+&lt;p&gt;I’m a loyal Vi(m) soldier in the Editors Holy War, but unfortunately there are
+some things on Vi(m) that just don’t make sense to me. One of those things is
+the &lt;code&gt;Y&lt;/code&gt; behavior.&lt;/p&gt;
+
+&lt;p&gt;One of the cool things about Vim is that there is a pattern, a logic that
+governs those seemingly chaotic commands. It combines simple commands to perform
+tasks (like &lt;code&gt;d[elete]i[nner]w[ord]&lt;/code&gt; and &lt;code&gt;d[elete]a[round]w[ord]&lt;/code&gt;) and keeps a
+certain pattern on how those commands are modified (like d/c and D/C). The yank
+command, however, deviates from this last rule in a kind of annoying way.&lt;/p&gt;
+
+&lt;p&gt;Just to recap, &lt;code&gt;d&lt;/code&gt; command deletes text over motion, while &lt;code&gt;c&lt;/code&gt; changes text over
+motion (or more accurately, deletes and enter insert mode). So &lt;code&gt;y&lt;/code&gt;, as expected,
+yanks text over motion. Both &lt;code&gt;d&lt;/code&gt; and &lt;code&gt;c&lt;/code&gt; have a correspondent &lt;code&gt;D&lt;/code&gt; and &lt;code&gt;C&lt;/code&gt;
+command that deletes/changes text from current position until the end of the
+line. So, naturally, you would expect &lt;code&gt;Y&lt;/code&gt; to do that same, however, instead it
+will copy the whole line! Even Vim documentation acknowledges how illogical that
+is.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;                                                        Y
+["x]Y   yank [count] lines [into register x] (synonym for
+        yy, linewise).  If you like "Y" to work from the
+        cursor to the end of line (which is more logical,
+        but not Vi-compatible) use ":map Y y$".
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I’ve used that mapping the documentation suggests on my vimrc for so long that I
+even forget that’s not the original behavior. So imagine my surprise when &lt;code&gt;Y&lt;/code&gt;
+suddenly stops working after I enabled a few new plugins the other day.&lt;/p&gt;
+
+&lt;p&gt;It turns out &lt;a href="http://www.vim.org/scripts/script.php?script_id=1234"&gt;YankRing&lt;/a&gt;
+was overriding my map and using the default Vi(m) &lt;code&gt;Y&lt;/code&gt; behavior.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nnoremap Y :&amp;lt;C-U&amp;gt;YRYankCount 'Y'&amp;lt;CR&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Unfortunately yankring doesn’t have a clean way of customizing mappings it uses
+for each yankring key, so it created a workaround with a function
+&lt;code&gt;YRRunAfterMaps()&lt;/code&gt;, which yankring calls after it has created the maps. So to
+get my beloved &lt;code&gt;Y&lt;/code&gt; mapping back, all I have to do is use this function to set
+the correct mapping on my vimrc:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;"make Y consistent with C and D on yankring
+function! YRRunAfterMaps()
+  nnoremap &amp;lt;silent&amp;gt; Y   :&amp;lt;C-U&amp;gt;YRYankCount 'y$'&amp;lt;CR&amp;gt;
+endfunction
+&lt;/code&gt;&lt;/pre&gt;
+
+</content>
+  </entry>
+</feed>
+

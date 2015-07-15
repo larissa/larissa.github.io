@@ -1,13 +1,13 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
-  line-height: 2;
-  color: #2D2D2D;
+  font-family: "Georgia", serif;
+  color: #333;
+  font-size: 17px;
 }
 
 body {
-  background: #F2F0EC;
+  background: #FCFCFC;
 }
 
 html,
@@ -38,6 +38,8 @@ blockquote:before {
 }
 blockquote p {
   display: inline;
+  font-style: italic;
+  line-height: 2 !important;
 }
 
 pre {
@@ -72,59 +74,121 @@ a {
 
 a:link,
 a:visited {
-  color: #F30;
+  color: #008793;
 }
 
 a:hover {
-  color: #F90;
+  text-decoration: underline;
+}
+
+#header {
+  height: auto;
+  position: relative;
+}
+
+#header * {
+  display: inline-block;
+  font-family: 'Patua One';
+}
+
+#header h1 a,
+#header h1 a:visited,
+#header h1 a:hover {
+  color: #333;
+  font-size: 50px;
+  text-decoration: none;
+}
+
+#header ul {
+  font-size: 18px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -9px;
+  height: 18px;
+}
+#header li {
+  margin-left: 10px;
 }
 
 #content {
   position: relative;
-  width: 100%;
   height: auto;
   min-height: 100%;
-}
-
-.left-column {
-  max-width: 550px;
-  width: 100%;
-  margin-left: 23%;
+  max-width: 620px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #main {
   position: relative;
-  padding: 40px 0;
-}
-
-#main h1 {
-  display: block;
-  font-size: 45px;
-  line-height: 1em;
-  font-family: 'DejaVu Sans Light', 'DejaVu Sans', sans-serif;
-  font-weight: 100;
-  margin-bottom: 30px
+  padding: 40px 0 120px 0;
 }
 
 #main h1,
+#main h1 > a,
 #main h2,
 #main h3,
+#main h4,
+#main h5 {
+  font-family: 'Raleway', 'DejaVu Sans Light', 'DejaVu Sans', sans-serif;
+}
+
+#main h1,
+#main h1 > a {
+  display: block;
+  font-size: 65px;
+  line-height: 1em;
+  font-weight: 100;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+#main h1 > a:hover {
+  text-decoration: none;
+}
+
+#main h2,
+#main h3 {
+  font-weight: 400;
+  font-size: 29px;
+}
+
+#main h2 {
+  font-size: 29px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+#main h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#main h4,
+#main h5 {
+  font-weight: 200;
+  font-size: 100%;
+}
+
 #main h4 {
-  color: #000;
+  font-size: 100%;
+}
+#main h5 {
+  font-size: 14px;
 }
 
 #main p {
   margin: 20px 0;
-  font-size: 15px;
-  line-height: 135%;
+  line-height: 1.5;
+  text-align: justify;
 }
 
 #main ul, #main ol {
-  margin: 20px;
+  margin: 10px 20px;
 }
 
 #main li {
-  font-size: 15px;
   line-height: 20px;
 }
 
@@ -133,83 +197,49 @@ a:hover {
 }
 
 #main .post-header {
-  font-size: 80%;
   text-align: right;
 }
 
-#sidebar {
-  position: fixed;
-  float: left;
-  max-width: 210px;
-  width: 15%;
-  padding: 5% 1.5% 0px 1.5%;
-  text-align: right;
-  min-height: 100%;
-  background-color: #2D2D2D;
-}
-
-#sidebar * {
-  color: #F2F0EC;
-}
-
-#sidebar a {
-  outline: 0;
-}
-
-#sidebar h2 {
-  text-transform: uppercase;
-  font-size: 30px;
-  letter-spacing: 1px;
-  line-height: 20px;
-  margin-bottom: 20px;
-}
-
-#sidebar h2 > p {
-  font-size: 30px;
-  line-height: 20px;
-}
-
-#sidebar ul {
-  list-style-type: none;
-  margin: 20% 0;
-}
-
-#sidebar li {
-  font-size: 14px;
-  line-height: 20px;
-}
-
-#sidebar p {
-  font-size: 80%;
-  line-height: 1.5;
-}
-
-#sidebar a:hover {
-  color: #F99157;
-}
-
-#sidebar .social li {
-  font-size: 30px;
-  margin: 10px;
-  display: inline-block;
-}
-
-#sidebar .social {
-  text-align: center;
+#main img {
+  max-width: 100%;
+  margin: 10px auto;
+  display: block;
+  -webkit-border-radius: 10px;
+  -o-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
 }
 
 .clear {
   clear: both;
 }
+
 #footer {
   position: absolute;
   bottom: 0;
-  height: 30px;
+  height: 100px;
   text-align: center;
   padding: 10px;
+  left: 0;
+  right: 0;
 }
 
 #footer * {
   font-size: 12px;
   line-height: 1.2;
+}
+
+#footer .social li {
+  display: inline-block;
+  padding: 20px;
+}
+#footer .social li a {
+  font-size: 35px !important;
+  color: #dfdfdf;
+  transition: 0.5s;
+}
+#footer .social li a:hover {
+  text-decoration: none;
+  color: #909090;
 }
