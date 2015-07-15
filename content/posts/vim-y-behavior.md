@@ -1,5 +1,5 @@
 ---
-title: Vim yy behavior and yankring
+title: Vim Y behavior and yankring
 author_name: Larissa Reis
 kind: article
 created_at: 2015-07-13
@@ -9,14 +9,13 @@ tags:
 
 I'm a loyal Vi(m) soldier in the Editors Holy War, but unfortunately there are
 some things on Vi(m) that just don't make sense to me. One of those things is
-the `yy` behavior.
+the `Y` behavior.
 
 One of the cool things about Vim is that there is a pattern, a logic that
 governs those seemingly chaotic commands. It combines simple commands to perform
 tasks (like `d[elete]i[nner]w[ord]` and `d[elete]a[round]w[ord]`) and keeps a
 certain pattern on how those commands are modified (like d/c and D/C). The yank
-command, however, deviates from this last rule in a kind of annoying way: the
-behavior of `Y`.
+command, however, deviates from this last rule in a kind of annoying way.
 
 Just to recap, `d` command deletes text over motion, while `c` changes text over
 motion (or more accurately, deletes and enter insert mode). So `y`, as expected,
