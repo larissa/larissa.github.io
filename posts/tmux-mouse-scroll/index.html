@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>larissa | virtual space</title>
+    <title>larissa | How to fix tmux mouse scrolling after 2.1 changes</title>
     <link rel="stylesheet" href="/stylesheet.css">
     <link rel="stylesheet" href="/coderay.css">
     <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Patua+One|Raleway:100,200,300,400,500' rel='stylesheet' type='text/css'>
@@ -37,13 +37,14 @@
       </div>
       <div id="main">
         
-<h1><a href="/posts/tmux-mouse-scroll/">How to fix tmux mouse scrolling after 2.1 changes</a></h1>
-<div class="post-header">
+
+<h1>How to fix tmux mouse scrolling after 2.1 changes</h1>
+<div class='post-header'>
   <h4>Posted on October 31, 2015</h4>
   
-  <h5>Tags: <a href="/tag/tmux" rel="tag">tmux</a>
-</h5>
+  <h5>Tags: <a href="/tag/tmux" rel="tag">tmux</a></h5>
 </div>
+
 
 <p>I updated tmux to the newest 2.1 version and surprise! my mouse configuration
 stopped working. According to the
@@ -86,60 +87,21 @@ bind-key -t vi-copy WheelDownPane scroll-down
 <p>There is actually a lot of interesting new features introduced for version 2.1,
 it’s worth taking a look at the changelog.</p>
 
-<h1><a href="/posts/vim-y-behavior/">Vim Y behavior and yankring</a></h1>
-<div class="post-header">
-  <h4>Posted on July 13, 2015</h4>
-  
-  <h5>Tags: <a href="/tag/vim" rel="tag">vim</a>
-</h5>
-</div>
 
-<p>I’m a loyal Vi(m) soldier in the Editors Holy War, but unfortunately there are
-some things on Vi(m) that just don’t make sense to me. One of those things is
-the <code>Y</code> behavior.</p>
 
-<p>One of the cool things about Vim is that there is a pattern, a logic that
-governs those seemingly chaotic commands. It combines simple commands to perform
-tasks (like <code>d[elete]i[nner]w[ord]</code> and <code>d[elete]a[round]w[ord]</code>) and keeps a
-certain pattern on how those commands are modified (like d/c and D/C). The yank
-command, however, deviates from this last rule in a kind of annoying way.</p>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'larissareis';
 
-<p>Just to recap, <code>d</code> command deletes text over motion, while <code>c</code> changes text over
-motion (or more accurately, deletes and enter insert mode). So <code>y</code>, as expected,
-yanks text over motion. Both <code>d</code> and <code>c</code> have a correspondent <code>D</code> and <code>C</code>
-command that deletes/changes text from current position until the end of the
-line. So, naturally, you would expect <code>Y</code> to do that same, however, instead it
-will copy the whole line! Even Vim documentation acknowledges how illogical that
-is.</p>
-
-<pre><code>                                                        Y
-["x]Y   yank [count] lines [into register x] (synonym for
-        yy, linewise).  If you like "Y" to work from the
-        cursor to the end of line (which is more logical,
-        but not Vi-compatible) use ":map Y y$".
-</code></pre>
-
-<p>I’ve used that mapping the documentation suggests on my vimrc for so long that I
-even forget that’s not the original behavior. So imagine my surprise when <code>Y</code>
-suddenly stops working after I enabled a few new plugins the other day.</p>
-
-<p>It turns out <a href="http://www.vim.org/scripts/script.php?script_id=1234">YankRing</a>
-was overriding my map and using the default Vi(m) <code>Y</code> behavior.</p>
-
-<pre><code>nnoremap Y :&lt;C-U&gt;YRYankCount 'Y'&lt;CR&gt;
-</code></pre>
-
-<p>Unfortunately yankring doesn’t have a clean way of customizing mappings it uses
-for each yankring key, so it created a workaround with a function
-<code>YRRunAfterMaps()</code>, which yankring calls after it has created the maps. So to
-get my beloved <code>Y</code> mapping back, all I have to do is use this function to set
-the correct mapping on my vimrc:</p>
-
-<pre><code>"make Y consistent with C and D on yankring
-function! YRRunAfterMaps()
-  nnoremap &lt;silent&gt; Y   :&lt;C-U&gt;YRYankCount 'y$'&lt;CR&gt;
-endfunction
-</code></pre>
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 
       </div>
