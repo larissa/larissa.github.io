@@ -101,10 +101,8 @@ a:hover {
 
 #header ul {
   font-size: 18px;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  margin-top: -9px;
+  margin: 20px 0;
+  float: right;
   height: 18px;
 }
 #header li {
@@ -242,4 +240,18 @@ a:hover {
 #footer .social li a:hover {
   text-decoration: none;
   color: #909090;
+}
+
+@media only screen and (max-width: 620px) {
+
+  #header ul {
+    float: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  #header h1 {
+    width: 100%;
+    text-align: center;
+  }
 }
