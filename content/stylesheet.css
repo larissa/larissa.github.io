@@ -254,4 +254,12 @@ a:hover {
     width: 100%;
     text-align: center;
   }
+
+  #footer * {
+    font-size: 14px;
+  }
+
+  * {
+    font-size: 18px;
+  }
 }
