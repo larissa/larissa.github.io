@@ -1,5 +1,10 @@
-function AbreTeSesamo(context) {
-    context.href = 'mxi' + 'lty:' + 'lxriss' + 'x@c' + 'ylivr' + 'e.cyy' + 'p.br';
-    context.href = context.href.replace(/x/g,'a');
-    context.href = context.href.replace(/y/g,'o');
+function colivreShow() {
+    c = document.getElementById('colivre');
+    if (c.className=='colivre-opacity') {
+        c.className = '';
+        setTimeout(function(){ c.className = 'colivre-none'; }, 250);
+    } else if (c.className=='colivre-none') {
+        c.className = '';
+        setTimeout(function(){ c.className = 'colivre-opacity'; }, 50);
+    }
 }

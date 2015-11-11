@@ -236,10 +236,29 @@ a:hover {
   font-size: 35px !important;
   color: #dfdfdf;
   transition: 0.5s;
+  outline: 0;
 }
 #footer .social li a:hover {
   text-decoration: none;
   color: #909090;
+}
+
+#footer #colivre {
+  display: block;
+  opacity: 0;
+  height: 0;
+  width: 200px;
+  position: absolute;
+  top: 0px;
+  right: 80px;
+  transition: all 0.2s ease .15s;
+}
+#footer #colivre.colivre-opacity {
+  opacity: 1;
+  height: 35px;
+}
+#footer #colivre.colivre-none {
+  display: none;
 }
 
 @media only screen and (max-width: 620px) {
