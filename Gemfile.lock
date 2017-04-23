@@ -1,0 +1,35 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    builder (3.2.3)
+    coderay (1.1.1)
+    colored (1.2)
+    concurrent-ruby (1.0.5)
+    cri (2.8.0)
+      colored (~> 1.2)
+    ddplugin (1.0.1)
+    hamster (3.0.0)
+      concurrent-ruby (~> 1.0)
+    kramdown (1.13.2)
+    mini_portile2 (2.1.0)
+    nanoc (4.7.8)
+      cri (~> 2.8)
+      ddplugin (~> 1.0)
+      hamster (~> 3.0)
+      ref (~> 2.0)
+    nokogiri (1.7.1)
+      mini_portile2 (~> 2.1.0)
+    ref (2.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  builder
+  coderay
+  kramdown
+  nanoc (= 4.7.8)
+  nokogiri
+
+BUNDLED WITH
+   1.14.6

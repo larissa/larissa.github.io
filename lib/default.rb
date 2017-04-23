@@ -8,18 +8,6 @@ include Nanoc::Helpers::Rendering
 
 require 'set'
 
-# Normalize all tags
-module NormalizeTags
-  def [](key)
-    result = super
-    key == :tags && !result.nil? ? result.map(&:downcase) : result
-  end
-end
-
-class Nanoc::Item
-  prepend NormalizeTags
-end
-
 # Helpers to format date
 def format_date(unformated_date)
   unformated_date.strftime('%B %e, %Y')

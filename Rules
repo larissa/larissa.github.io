@@ -1,95 +1,71 @@
 #!/usr/bin/env ruby
 
-# A few helpful tips about the Rules file:
-#
-# * The string given to #compile and #route are matching patterns for
-#   identifiers--not for paths. Therefore, you can’t match on extension.
-#
-# * The order of rules is important: for each item, only the first matching
-#   rule is applied.
-#
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
-
 # Create tag pages items before compilation
 preprocess do
-  tags = get_tags(items)
+  tags = get_tags(@items)
   tags.each do |tag|
-    items << Nanoc::Item.new(
+    @items.create(
       "<h1>#{tag}</h1>
-      <%= render 'tags', tag: '#{tag}' %>",
+      <%= render '/tags.html', tag: '#{tag}' %>",
       { title: tag },
-      "/tag/#{tag}/")
+      "/tag/#{tag}"
+    )
   end
 end
+
+# Do not compile images and assets, copy them as is
+passthrough '/**/*.{png,js,css}'
 
 # Do not compile meta files, like CNAME
-compile '/meta/*/' do
-  # do nothing
+# We will use a custom route, so we can't use passthrough here
+compile '/meta/**/*' do
 end
 
-compile '/tag/*/' do
+compile '/tag/**/*' do
   filter :erb
-  layout 'default'
+  layout '/default.html'
 end
 
-compile '/feed/' do
+compile '/feed.erb' do
   filter :erb
 end
 
-compile '*' do
-  if item[:extension] == 'css'
-    # don’t filter stylesheets
-  elsif item[:extension] == 'js'
-    # don’t filter javascript as well
-  elsif item.binary?
-    # don’t filter binary items
-  else
-    filter :erb
-      if item[:extension] == 'md'
-        filter :kramdown, { enable_coderay: false }
-      end
-      filter :colorize_syntax,
-       :colorizers => { :ruby => :coderay },
-       :coderay    => {
-         :css => :class,
-         :line_numbers => :inline,
-         :line_number_anchors => false,
-         :bold_every => false
-       }
-    if item[:kind] == 'article'
-      layout 'post'
+compile '/**/*' do
+  filter :erb
+    if item.identifier.ext == 'md'
+      filter :kramdown, { enable_coderay: false }
     end
-    layout 'default'
+    filter :colorize_syntax,
+     :colorizers => { :ruby => :coderay },
+     :coderay    => {
+       :css => :class,
+       :line_numbers => :inline,
+       :line_number_anchors => false,
+       :bold_every => false
+     }
+  if item[:kind] == 'article'
+    layout '/post.html'
   end
+  layout '/default.html'
 end
 
-route '/feed/' do
+route '/feed.erb' do
   '/feed.xml'
 end
 
-route '/meta/*/' do
+route '/meta/**/*' do
   # Routes to root directory by removing meta from the identifier
   # and keeps extension (or lack thereof)
-  item.identifier[5..-1].chop + (item[:extension].nil? ? '' : '.' + item[:extension])
+  item.identifier.to_s[5..-1]
 end
 
-route '*' do
-  if item[:extension] == 'css'
-    # Write item with identifier /foo/ to /foo.css
-    item.identifier.chop + '.css'
-  elsif item[:extension] == 'js'
-    # Write item with identifier /foo/ to /foo.js
-    item.identifier.chop + '.js'
-  elsif item.binary?
-    # Write item with identifier /foo/ to /foo.ext
-    item.identifier.chop + '.' + item[:extension]
+route '/**/*' do
+  if item.identifier =~ '/index.*'
+    '/index.html'
   else
-    # Write item with identifier /foo/ to /foo/index.html
-    item.identifier + 'index.html'
+    # Write item with identifier /foo.erb to /foo/index.html
+    item.identifier.without_ext + '/index.html'
   end
 end
 
-layout '*', :erb
+layout '/**/*', :erb
