@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>http://larissareis.me/</id>
+  <id>http://blog.larissareis.org/</id>
   <title>blog feed</title>
-  <updated>2015-10-31T03:00:00Z</updated>
-  <link rel="alternate" href="http://larissareis.me/"/>
-  <link rel="self" href="http://larissareis.me/feed.xml"/>
+  <updated>2015-10-31T00:00:00Z</updated>
+  <link rel="alternate" href="http://blog.larissareis.org/"/>
+  <link rel="self" href="http://blog.larissareis.org/feed.xml"/>
   <author>
     <name>Larissa Reis</name>
-    <uri>http://larissareis.me</uri>
+    <uri>http://blog.larissareis.org</uri>
   </author>
   <entry>
-    <id>tag:larissareis.me,2015-10-31:/posts/tmux-mouse-scroll/</id>
+    <id>tag:blog.larissareis.org,2015-10-31:/posts/tmux-mouse-scroll/</id>
     <title type="html">How to fix tmux mouse scrolling after 2.1 changes</title>
-    <published>2015-10-31T03:00:00Z</published>
-    <updated>2015-10-31T03:00:00Z</updated>
+    <published>2015-10-31T00:00:00Z</published>
+    <updated>2015-10-31T00:00:00Z</updated>
     <author>
       <name>Larissa Reis</name>
-      <uri>http://larissareis.me</uri>
+      <uri>http://blog.larissareis.org</uri>
     </author>
-    <link rel="alternate" href="http://larissareis.me/posts/tmux-mouse-scroll/"/>
+    <link rel="alternate" href="http://blog.larissareis.org/posts/tmux-mouse-scroll/"/>
     <content type="html">
 &lt;p&gt;I updated tmux to the newest 2.1 version and surprise! my mouse configuration
 stopped working. According to the
@@ -63,15 +63,15 @@ it’s worth taking a look at the changelog.&lt;/p&gt;
 </content>
   </entry>
   <entry>
-    <id>tag:larissareis.me,2015-07-13:/posts/vim-y-behavior/</id>
+    <id>tag:blog.larissareis.org,2015-07-13:/posts/vim-y-behavior/</id>
     <title type="html">Vim Y behavior and yankring</title>
-    <published>2015-07-13T03:00:00Z</published>
-    <updated>2015-07-13T03:00:00Z</updated>
+    <published>2015-07-13T00:00:00Z</published>
+    <updated>2015-07-13T00:00:00Z</updated>
     <author>
       <name>Larissa Reis</name>
-      <uri>http://larissareis.me</uri>
+      <uri>http://blog.larissareis.org</uri>
     </author>
-    <link rel="alternate" href="http://larissareis.me/posts/vim-y-behavior/"/>
+    <link rel="alternate" href="http://blog.larissareis.org/posts/vim-y-behavior/"/>
     <content type="html">
 &lt;p&gt;I’m a loyal Vi(m) soldier in the Editors Holy War, but unfortunately there are
 some things on Vi(m) that just don’t make sense to me. One of those things is
