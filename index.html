@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/coderay.css">
     <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Patua+One|Raleway:100,200,300,400,500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <script src="/javascript.js" type="text/javascript" charset="utf-8"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -37,109 +36,31 @@
       </div>
       <div id="main">
         
-<h1><a href="/posts/tmux-mouse-scroll/">How to fix tmux mouse scrolling after 2.1 changes</a></h1>
-<div class="post-header">
-  <h4>Posted on October 31, 2015</h4>
-  
-  <h5>Tags: <a href="/tag/tmux" rel="tag">tmux</a>
+<div class="abstract">
+  <h1><a href="/posts/tmux-mouse-scroll/">How to fix tmux mouse scrolling after 2.1 changes</a></h1>
+  <div class="post-header">
+    <h4>Posted on October 31, 2015</h4>
+    
+    <h5>Tags: <a href="/tag/tmux" rel="tag">tmux</a>
 </h5>
+  </div>
+
+  <p>I updated tmux to the newest 2.1 version and surprise! my mouse configuration stopped working. This is thanks to a rewritten of mouse mode and it's pretty simple to fix.</p>
+  <p><a href="/posts/tmux-mouse-scroll/">Read more</a></p>
 </div>
 
-<p>I updated tmux to the newest 2.1 version and surprise! my mouse configuration
-stopped working. According to the
-<a href="https://github.com/tmux/tmux/blob/master/CHANGES">changelog</a>, mouse mode was
-rewritten and made a lot simpler. All those options for <code>mouse-{resize,select}</code>
-and <code>mode-mouse</code> were thrown away and replaced by one <code>mouse</code> that turns on the
-support for mouse inside tmux.</p>
-
-<p>From the manual,</p>
-
-<pre><code>mouse [on | off]  If on, tmux captures the mouse and
-                  allows mouse events to be bound as
-                  key bindings. See the MOUSE SUPPORT
-                  section for details.
-</code></pre>
-
-<p>I didn’t want to do anything fancy, so just turning on mouse and using the
-default bindings were enough to make mouse work again. There was only one little
-problem: mouse scrolling was not working. Or rather, it worked only when I was
-already inside copy-mode. Apparently the old behavior changed because people
-couldn’t agree on how it should work, like how many lines should be skipped. So
-now tmux guys decided to keep it simple and let people configure themselves.</p>
-
-<p>I’m using the configuration suggested
-<a href="https://www.reddit.com/r/tmux/comments/3paqoi/tmux_21_has_been_released/cw552qd">here</a>
-to use the mouse scroll to automatically enter copy-mode to scroll back into
-history and leave copy-mode when you’re back at the bottom again. It also passes
-through the key press instead of entering copy-mode if there is an alternate
-screen, like mutt or less, that will handle the key themselves. I thought that
-scrolling half a page was too much so in my tmux.conf I used scroll-up to skip
-only one line at a time instead:</p>
-
-<pre><code># makes scroll work
-bind-key -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
-bind-key -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "send-keys -M" "select-pane -t =; send-keys -M"
-bind-key -t vi-copy WheelUpPane scroll-up
-bind-key -t vi-copy WheelDownPane scroll-down
-</code></pre>
-
-<p>There is actually a lot of interesting new features introduced for version 2.1,
-it’s worth taking a look at the changelog.</p>
-
-<h1><a href="/posts/vim-y-behavior/">Vim Y behavior and yankring</a></h1>
-<div class="post-header">
-  <h4>Posted on July 13, 2015</h4>
-  
-  <h5>Tags: <a href="/tag/vim" rel="tag">vim</a>
+<div class="abstract">
+  <h1><a href="/posts/vim-y-behavior/">Vim Y behavior and yankring</a></h1>
+  <div class="post-header">
+    <h4>Posted on July 13, 2015</h4>
+    
+    <h5>Tags: <a href="/tag/vim" rel="tag">vim</a>
 </h5>
+  </div>
+
+  <p>I'm a loyal Vi(m) soldier in the Editors Holy War, but unfortunately there are some things on Vi(m) that just don't make sense to me. One of those things is the Y behavior.</p>
+  <p><a href="/posts/vim-y-behavior/">Read more</a></p>
 </div>
-
-<p>I’m a loyal Vi(m) soldier in the Editors Holy War, but unfortunately there are
-some things on Vi(m) that just don’t make sense to me. One of those things is
-the <code>Y</code> behavior.</p>
-
-<p>One of the cool things about Vim is that there is a pattern, a logic that
-governs those seemingly chaotic commands. It combines simple commands to perform
-tasks (like <code>d[elete]i[nner]w[ord]</code> and <code>d[elete]a[round]w[ord]</code>) and keeps a
-certain pattern on how those commands are modified (like d/c and D/C). The yank
-command, however, deviates from this last rule in a kind of annoying way.</p>
-
-<p>Just to recap, <code>d</code> command deletes text over motion, while <code>c</code> changes text over
-motion (or more accurately, deletes and enter insert mode). So <code>y</code>, as expected,
-yanks text over motion. Both <code>d</code> and <code>c</code> have a correspondent <code>D</code> and <code>C</code>
-command that deletes/changes text from current position until the end of the
-line. So, naturally, you would expect <code>Y</code> to do that same, however, instead it
-will copy the whole line! Even Vim documentation acknowledges how illogical that
-is.</p>
-
-<pre><code>                                                        Y
-["x]Y   yank [count] lines [into register x] (synonym for
-        yy, linewise).  If you like "Y" to work from the
-        cursor to the end of line (which is more logical,
-        but not Vi-compatible) use ":map Y y$".
-</code></pre>
-
-<p>I’ve used that mapping the documentation suggests on my vimrc for so long that I
-even forget that’s not the original behavior. So imagine my surprise when <code>Y</code>
-suddenly stops working after I enabled a few new plugins the other day.</p>
-
-<p>It turns out <a href="http://www.vim.org/scripts/script.php?script_id=1234">YankRing</a>
-was overriding my map and using the default Vi(m) <code>Y</code> behavior.</p>
-
-<pre><code>nnoremap Y :&lt;C-U&gt;YRYankCount 'Y'&lt;CR&gt;
-</code></pre>
-
-<p>Unfortunately yankring doesn’t have a clean way of customizing mappings it uses
-for each yankring key, so it created a workaround with a function
-<code>YRRunAfterMaps()</code>, which yankring calls after it has created the maps. So to
-get my beloved <code>Y</code> mapping back, all I have to do is use this function to set
-the correct mapping on my vimrc:</p>
-
-<pre><code>"make Y consistent with C and D on yankring
-function! YRRunAfterMaps()
-  nnoremap &lt;silent&gt; Y   :&lt;C-U&gt;YRYankCount 'y$'&lt;CR&gt;
-endfunction
-</code></pre>
 
 
       </div>
@@ -158,10 +79,6 @@ endfunction
           </li>
           <li>
             <a title="linkedin" href="https://br.linkedin.com/in/reislarissa" class="fa fa-linkedin"></a>
-          </li>
-          <li>
-            <a title="contact" href="javascript:void(0)" onclick="colivreShow();" class="fa fa-envelope"></a>
-            <img id='colivre' class='colivre-none' src='/colivre.png'>
           </li>
         </ul>
         <p>
