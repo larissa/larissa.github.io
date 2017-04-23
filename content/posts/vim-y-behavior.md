@@ -3,6 +3,7 @@ title: Vim Y behavior and yankring
 author_name: Larissa Reis
 kind: article
 created_at: 2015-07-13
+abstract: I'm a loyal Vi(m) soldier in the Editors Holy War, but unfortunately there are some things on Vi(m) that just don't make sense to me. One of those things is the Y behavior.
 tags:
   - vim
 ---

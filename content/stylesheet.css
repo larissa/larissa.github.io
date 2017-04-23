@@ -124,6 +124,10 @@ a:hover {
   padding: 40px 0 120px 0;
 }
 
+#main .abstract:not(:last-child) {
+  padding-bottom: 20px;
+}
+
 #main h1,
 #main h1 > a,
 #main h2,
