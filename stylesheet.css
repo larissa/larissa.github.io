@@ -238,7 +238,7 @@ a:hover {
 }
 #footer .social li a {
   font-size: 35px !important;
-  color: #dfdfdf;
+  color: #bbb;
   transition: 0.5s;
   outline: 0;
 }
