@@ -1,13 +1,10 @@
-* {
+body {
+  background: #FCFCFC;
   margin: 0;
   padding: 0;
   font-family: "Georgia", serif;
   color: #333;
   font-size: 17px;
-}
-
-body {
-  background: #FCFCFC;
 }
 
 html,
@@ -36,26 +33,27 @@ blockquote:before {
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
+#main blockquote p,
 blockquote p {
   display: inline;
   font-style: italic;
-  line-height: 2 !important;
+  line-height: 2;
 }
 
 pre {
   background-color: #F3F3F3;
   border: solid 1px #CCC;
   border-radius: 3px;
-  padding: 15px 20px;
+  padding: 0 5px;
   overflow: auto;
   white-space: pre;
   margin: 20px 0px;
 }
 
-code,
-code * {
-  font-size: 1em;
-  font-family: "Source Code Pro", Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+  line-height: 20px;
 }
 
 p > code,
@@ -84,11 +82,9 @@ a:hover {
 #header {
   height: auto;
   position: relative;
-}
-
-#header * {
   display: inline-block;
   font-family: 'Patua One';
+  width: 100%;
 }
 
 #header h1 a,
@@ -99,14 +95,23 @@ a:hover {
   text-decoration: none;
 }
 
+#header h1 {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
 #header ul {
   font-size: 18px;
   margin: 20px 0;
+  padding: 0;
   float: right;
   height: 18px;
+  list-style-type: none;
 }
 #header li {
-  margin-left: 10px;
+  margin: 0 5px;
+  display: inline-block;
 }
 
 #content {
@@ -169,7 +174,7 @@ a:hover {
 
 #main h4,
 #main h5 {
-  font-weight: 200;
+  font-weight: 300;
   font-size: 100%;
 }
 
@@ -227,9 +232,15 @@ a:hover {
   right: 0;
 }
 
-#footer * {
+#footer {
   font-size: 12px;
   line-height: 1.2;
+}
+
+#footer p,
+#footer ul {
+  margin: 0;
+  padding: 0;
 }
 
 #footer .social li {
@@ -237,7 +248,7 @@ a:hover {
   padding: 20px;
 }
 #footer .social li a {
-  font-size: 35px !important;
+  font-size: 35px;
   color: #bbb;
   transition: 0.5s;
   outline: 0;
@@ -248,6 +259,15 @@ a:hover {
 }
 
 @media only screen and (max-width: 620px) {
+
+  #content {
+    padding: 0;
+  }
+
+  #main {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 
   #header ul {
     float: none;
@@ -260,11 +280,11 @@ a:hover {
     text-align: center;
   }
 
-  #footer * {
+  #footer {
     font-size: 14px;
   }
 
-  * {
+  body {
     font-size: 18px;
   }
 }
