@@ -14,7 +14,14 @@ preprocess do
 end
 
 # Do not compile images and assets, copy them as is
-passthrough '/assets/**/*.{png,js,css}'
+passthrough '/assets/**/*.{png,js}'
+
+# Compile main SASS file and ignore others that should be included in main
+ignore '/assets/css/**/_*'
+compile '/assets/css/stylesheet.scss' do
+  filter :sass, syntax: :scss
+  write item.identifier.without_ext + '.css'
+end
 
 # Do not compile meta files, like CNAME
 # We will use a custom route, so we can't use passthrough here
