@@ -14,7 +14,7 @@ preprocess do
 end
 
 # Do not compile images and assets, copy them as is
-passthrough '/**/*.{png,js,css}'
+passthrough '/assets/**/*.{png,js,css}'
 
 # Do not compile meta files, like CNAME
 # We will use a custom route, so we can't use passthrough here
