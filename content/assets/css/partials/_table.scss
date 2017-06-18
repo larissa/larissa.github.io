@@ -1,0 +1,62 @@
+// From bulma.io table style
+$table:                           hsl(0, 0%, 21%) !default;
+$table-background:                #FFF !default;
+$table-border:                    hsl(0, 0%, 86%) !default;
+
+$table-head:                      hsl(0, 0%, 48%) !default;
+
+$table-row-hover-background:      hsl(0, 0%, 98%) !default;
+
+$table-row-even-background:       hsl(0, 0%, 98%) !default;
+$table-row-even-hover-background: hsl(0, 0%, 96%) !default;
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: $table-background;
+  color: $table;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  td, th {
+    border: 1px solid $table-border;
+    border-width: 0 0 1px;
+    padding: 0.5em 0.75em;
+    vertical-align: top;
+  }
+  th {
+    font-weight: bold;
+    text-align: left;
+  }
+  tr {
+    &:hover {
+      background-color: $table-row-hover-background;
+    }
+  }
+  thead {
+    td, th {
+      border-width: 0 0 2px;
+      color: $table-head;
+    }
+  }
+  tfoot {
+    td, th {
+      border-width: 2px 0 0;
+      color: $table-head;
+    }
+  }
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: $table-row-even-background;
+        &:hover {
+          background-color: $table-row-even-hover-background;
+        }
+      }
+      &:last-child {
+        td, th {
+          border-bottom-width: 0;
+        }
+      }
+    }
+  }
+}

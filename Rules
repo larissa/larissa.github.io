@@ -16,6 +16,9 @@ end
 # Do not compile images and assets, copy them as is
 passthrough '/assets/**/*.{png,js}'
 
+# Copy normalize.css as is
+passthrough '/assets/css/normalize.css'
+
 # Compile main SASS file and ignore others that should be included in main
 ignore '/assets/css/**/_*'
 compile '/assets/css/stylesheet.scss' do

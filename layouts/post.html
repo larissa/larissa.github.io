@@ -1,11 +1,15 @@
-<h1><%= @item[:title] %></h1>
-<div class='post-header'>
-  <h4>Posted on <%= creation_date(@item) %></h4>
-  <% tags = tags_for(@item, { base_url: "/tag/" }) %>
-  <h5><%= "Tags: #{tags}" if  tags != '(none)' %></h5>
-</div>
+<article>
+  <% tags = tags_for(@item, { base_url: "/tag/"  }) %>
+  <% if tags != '(none)' %>
+    <p class="type"><%= tags %></p>
+  <% end %>
 
-<%= yield %>
+  <h1><%= @item[:title] %></h1>
+  <p class='date'><%= creation_date(@item) %></p>
+  <%= yield %>
+</article>
+
+<hr />
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">

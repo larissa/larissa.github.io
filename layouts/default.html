@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>larissa | <%= @item[:title] %></title>
+    <link rel="stylesheet" href="<%= @items['/assets/css/normalize.css'].path %>">
     <link rel="stylesheet" href="<%= @items['/assets/css/stylesheet.scss'].path %>">
     <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,800,700,600,300' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,300,100,700' rel='stylesheet' type='text/css'>
@@ -23,45 +24,43 @@
     <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
   </head>
   <body>
-    <div id="content">
-      <div id="header">
+    <nav>
+      <div class='container'>
+        <img id='logo' src="<%= @items['/assets/images/ruby.png'].path %>" alt="ruby"/>
         <h1><a href="/">larissa reis</a></h1>
         <ul>
-          <li><%= link_to('About', @items['/about.md'].path) %></li>
-          <li><%= link_to('Projects', @items['/projects.md'].path) %></li>
-          <li><%= link_to('Archive', @items['/archive.erb'].path) %></li>
-          <li><%= link_to('Tags', @items['/tags.erb'].path) %></li>
-          <li><a title="feed" href=<%= @items['/feed.erb'].path %>>Feed</a>
+          <li><%= link_to('about', @items['/about.md'].path) %></li>
+          <li><%= link_to('projects', @items['/projects.md'].path) %></li>
+          <li><%= link_to('archive', @items['/archive.erb'].path) %></li>
+          <li><%= link_to('tags', @items['/tags.erb'].path) %></li>
+          <li><a title="feed" href=<%= @items['/feed.erb'].path %>>feed</a>
           </li>
         </ul>
       </div>
-      <div id="main">
-        <%= yield %>
-      </div>
-      <div class="clear">
-      </div>
-      <div id='footer'>
-        <ul class="social">
-          <li>
-            <a title="github" href="https://github.com/larissa" class="fa fa-github"></a>
-          </li>
-          <li>
-            <a title="gitlab" href="https://gitlab.com/u/larissa" class="fa fa-git"></a>
-          </li>
-          <li>
-            <a title="bitbucket" href="https://bitbucket.org/larissareis" class="fa fa-bitbucket"></a>
-          </li>
-          <li>
-            <a title="linkedin" href="https://br.linkedin.com/in/reislarissa" class="fa fa-linkedin"></a>
-          </li>
-        </ul>
-        <p>
-          ©2015, Larissa Reis. All Rights Reserved
-        </p>
-        <p>
-          Powered by the awesomeness and simplicity of <%= link_to 'Ruby', 'https://www.ruby-lang.org' %> and <%= link_to 'Nanoc', 'http://nanoc.ws' %>.
-        </p>
-      </div>
+    </nav>
+    <div id="content" class='container'>
+      <%= yield %>
     </div>
+    <footer>
+      <ul>
+        <li>
+          <a href="https://github.com/larissa" class="fa fa-github"></a>
+        </li>
+        <li>
+          <a href="https://gitlab.com/u/larissa" class="fa fa-git"></a>
+        </li>
+        <li>
+          <a href="https://bitbucket.org/larissareis" class="fa fa-bitbucket"></a>
+        </li>
+        <li>
+          <a href="https://br.linkedin.com/in/reislarissa" class="fa fa-linkedin"></a>
+        </li>
+      </ul>
+      <p>
+        ©2015, Larissa Reis. All Rights Reserved
+        <br />
+        Powered by the awesomeness and simplicity of <%= link_to 'Ruby', 'https://www.ruby-lang.org' %> and <%= link_to 'Nanoc', 'http://nanoc.ws' %>.
+      </p>
+    </footer>
   </body>
 </html>

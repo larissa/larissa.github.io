@@ -3,12 +3,12 @@ title: How to fix tmux mouse scrolling after 2.1 changes
 author_name: Larissa Reis
 kind: article
 created_at: 2015-10-31
-abstract: I updated tmux to the newest 2.1 version and surprise! my mouse configuration stopped working. This is thanks to a rewritten of mouse mode and it's pretty simple to fix.
+abstract: <span>I updated tmux to the newest 2.1 version</span> and surprise! my mouse configuration stopped working. This is thanks to a rewritten of mouse mode and it's pretty simple to fix.
 tags:
   - tmux
 ---
 
-I updated tmux to the newest 2.1 version and surprise! my mouse configuration
+<span>I updated tmux to the newest 2.1 version</span> and surprise! my mouse configuration
 stopped working. According to the
 [changelog](https://github.com/tmux/tmux/blob/master/CHANGES), mouse mode was
 rewritten and made a lot simpler. All those options for `mouse-{resize,select}`
