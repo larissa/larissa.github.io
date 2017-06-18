@@ -23,6 +23,7 @@ passthrough '/assets/css/normalize.css'
 ignore '/assets/css/**/_*'
 compile '/assets/css/stylesheet.scss' do
   filter :sass, syntax: :scss
+  filter :yui_compressor, type: 'css'
   write item.identifier.without_ext + '.css'
 end
 
