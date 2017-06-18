@@ -20,7 +20,7 @@
     </author>
     <link rel="alternate" href="http://blog.larissareis.org/posts/tmux-mouse-scroll/"/>
     <content type="html">
-&lt;p&gt;I updated tmux to the newest 2.1 version and surprise! my mouse configuration
+&lt;p&gt;&lt;span&gt;I updated tmux to the newest 2.1 version&lt;/span&gt; and surprise! my mouse configuration
 stopped working. According to the
 &lt;a href="https://github.com/tmux/tmux/blob/master/CHANGES"&gt;changelog&lt;/a&gt;, mouse mode was
 rewritten and made a lot simpler. All those options for &lt;code&gt;mouse-{resize,select}&lt;/code&gt;
@@ -73,7 +73,7 @@ it’s worth taking a look at the changelog.&lt;/p&gt;
     </author>
     <link rel="alternate" href="http://blog.larissareis.org/posts/vim-y-behavior/"/>
     <content type="html">
-&lt;p&gt;I’m a loyal Vi(m) soldier in the Editors Holy War, but unfortunately there are
+&lt;p&gt;&lt;span&gt;I’m a loyal Vi(m) soldier in the Editors Holy War&lt;/span&gt;, but unfortunately there are
 some things on Vi(m) that just don’t make sense to me. One of those things is
 the &lt;code&gt;Y&lt;/code&gt; behavior.&lt;/p&gt;
 
