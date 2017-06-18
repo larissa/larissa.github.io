@@ -13,9 +13,12 @@ html, body {
 }
 
 #content {
-  margin-top: 4em;
-  margin-bottom: 5em;
-  min-height: calc(50vh - 80px)
+  margin-top: 2em;
+  min-height: calc(60vh - 100px);
+  @include grid-media($neat-grid) {
+    margin-top: 4em;
+    margin-bottom: 5em;
+  }
 }
 
 hr {

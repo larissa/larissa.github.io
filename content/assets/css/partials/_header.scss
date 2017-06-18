@@ -20,8 +20,14 @@ nav {
   ul {
     list-style-type: none;
     display: flex;
-    padding-left: 64px;
+    flex-wrap: wrap;
     margin: 0;
+    padding-left: 0;
+    max-width: 90%;
+    @include grid-media($neat-grid) {
+      padding-left: 64px;
+      max-width: 100%;
+    }
     li {
       margin-right: 1.5em;
       padding-bottom: .3em;
